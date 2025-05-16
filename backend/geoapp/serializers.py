@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Plant, Schedule, PlantBoundary, DataCollector
+from .models import User, Plant, Schedule, PlantBoundary, DataCollector, SchedulePrediction
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -45,3 +45,8 @@ class DataCollectorSerializer(serializers.ModelSerializer):
         model = DataCollector
         fields = '__all__'
         depth = 1
+
+class SchedulePredictionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SchedulePrediction
+        fields = '__all__'

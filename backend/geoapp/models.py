@@ -51,3 +51,10 @@ class DataCollector(models.Model):
     visit_date = models.DateField()
     dc_location_lat = models.FloatField(default=0.0)
     dc_location_long = models.FloatField(default=0.0)
+
+class SchedulePrediction(models.Model):
+    visit_date = models.DateField(unique=True)
+    predicted_schedule_count = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.visit_date} - {self.predicted_schedule_count}"
